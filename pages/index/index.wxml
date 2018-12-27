@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+<!-- 
+  设置状态
+  year :  年份
+  start_month：开始月份（number）如：9 
+  end_month：结束月份（number）如：12  结束月份 >= 开始月份
+  current：当天日期（string）如：9-6
+  reset：休息日（string） 如：9-1,9-2,9-8
+  vacation：假期日（string） 如：9-2,9-3,9-9
+  isClick：是否可以点击
+  click:点击事件（返回值为 e.detail）
+
+  注意：要设置的属性不能为空
+ -->
+  <component-date year="2018" start_month="9" end_month="12" rest="9-1,9-27,9-8,10-9" vacation="9-3,9-18,10-4,11-8,12-3" bind:click="onClick" isClick="false" current="9-11"></component-date>
+</view>

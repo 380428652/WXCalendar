@@ -1,0 +1,31 @@
+<!--pages/date/date.wxml-->
+<view class="date">
+  <view class='date-top flex'>
+    <view wx:for="{{weekL}}" wx:key="index" class="item {{index==0||index==6?'active':''}}">{{item}}</view>
+  </view>
+  <view class='date-content'>
+    <view class='date-item' wx:for="{{monthList}}" wx:for-item="item" wx:key="index">
+      <view class='year-month'>
+        <text class='month'>{{item.month}}月</text>
+        <text class='year'>/{{year}}</text>
+      </view>
+      <view class='day-list flex'>
+        <view wx:for="{{item.blank}}" class='item' wx:key="index"></view>
+        <view wx:for="{{item.date}}" data-item="{{item}}" data-date="{{index}}" class="item {{item1.status==1||item1.day==6||item1.day==0?'status1':item1.status==2?'status2':''}}" wx:key="index" wx:for-item="item1" bindtap="onClick">
+          <view class="day {{currentDate[0]==item.month&&currentDate[1]>item1.value?'old':currentDate[0]==item.month&&currentDate[1]==item1.value?'current':''}}">{{item1.value}}</view>
+          <view class="status {{currentDate[0]==item.month&&currentDate[1]>item1.value?'old':''}}">{{item1.status==1||item1.day==6||item1.day==0?'休':item1.status==2?'假':''}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='date-bottom flex'>
+    <view class='flex'>
+      <text class='status1'>休</text>
+      <text class='text'>周末休息</text>
+    </view>
+    <view class='flex'>
+      <text class='status2'>假</text>
+      <text class='text'>领馆放假</text>
+    </view>
+  </view>
+</view>
